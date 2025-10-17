@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'about_section.dart';
 import 'projects_section.dart';
 import 'contact_section.dart';
+import 'footer.dart';
+import 'nav_drawer.dart';
 
 class HomePage extends StatelessWidget {
   final bool isDarkMode;
@@ -32,6 +34,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      drawer: const NavDrawer(),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -41,6 +44,8 @@ class HomePage extends StatelessWidget {
             ProjectsSection(),
             SizedBox(height: 24),
             ContactSection(),
+            SizedBox(height: 24),
+            Footer(),
           ],
         ),
       ),
