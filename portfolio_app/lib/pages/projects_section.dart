@@ -7,8 +7,8 @@ class ProjectsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final projects = [
       {
-        'title': 'Weather App',
-        'description': 'A sleek weather app built using Flutter and OpenWeatherMap API.'
+        'title': 'Ctranslate Mobile App',
+        'description': 'An offline centric translation app for low resource languages...'
       },
       {
         'title': 'ToDo App',
