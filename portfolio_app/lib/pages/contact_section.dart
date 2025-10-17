@@ -20,15 +20,15 @@ class ContactSection extends StatelessWidget {
             SizedBox(height: 10),
             ListTile(
               leading: Icon(Icons.email),
-              title: Text('john.doe@example.com'),
+              title: Text('johncollinsbran@gmail.com'),
             ),
             ListTile(
               leading: Icon(Icons.phone),
-              title: Text('+1 234 567 8901'),
+              title: Text('+234-09011906128'),
             ),
             ListTile(
               leading: Icon(Icons.web),
-              title: Text('www.johndoe.dev'),
+              title: Text('www.Climel.inc'),
             ),
           ],
         ),
