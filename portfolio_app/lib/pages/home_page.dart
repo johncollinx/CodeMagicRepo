@@ -4,6 +4,7 @@ import 'projects_section.dart';
 import 'contact_section.dart';
 import 'footer.dart';
 import 'nav_drawer.dart';
+import 'headshot.dart';  // import headshot widget
 
 class HomePage extends StatelessWidget {
   final bool isDarkMode;
@@ -39,6 +40,10 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: const [
+            Headshot(
+              imageUrl: 'https://your-image-url.com/headshot.jpg',  // Replace with your actual image URL
+            ),
+            SizedBox(height: 16),
             AboutSection(),
             SizedBox(height: 24),
             ProjectsSection(),
