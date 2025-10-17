@@ -8,15 +8,13 @@ class ContactSection extends StatelessWidget {
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
+      child: const Padding(
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Text(
-              'Contact Me',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+          children: [
+            Text('Contact Me',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
             ListTile(
               leading: Icon(Icons.email),
