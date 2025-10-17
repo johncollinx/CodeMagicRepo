@@ -8,7 +8,7 @@ class ProjectsSection extends StatelessWidget {
     final projects = [
       {
         'title': 'Ctranslate Mobile App',
-        'description': 'An offline centric translation app for low resource languages...'
+        'description': 'An offline-centric translation app for low-resource languages.'
       },
       {
         'title': 'ToDo App',
