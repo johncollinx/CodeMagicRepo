@@ -24,13 +24,21 @@ class _PortfolioAppState extends State<PortfolioApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Portfolio',
-      theme: _isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      title: 'John Climel | Portfolio',
+      theme: ThemeData(
+        brightness: _isDarkMode ? Brightness.dark : Brightness.light,
+        primarySwatch: Colors.teal,
+        scaffoldBackgroundColor: _isDarkMode ? Colors.grey[900] : Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.teal,
+          foregroundColor: Colors.white,
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
       home: HomePage(
         isDarkMode: _isDarkMode,
         onThemeToggle: toggleTheme,
       ),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
