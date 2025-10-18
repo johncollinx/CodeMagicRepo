@@ -5,64 +5,68 @@ plugins {
 }
 
 def localProperties = new Properties()
-def localPropertiesFile = rootProject.file('local.properties')
+def localPropertiesFile = rootProject.file("local.properties")
 if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader ->
+    localPropertiesFile.withReader("UTF-8") { reader ->
         localProperties.load(reader)
     }
 }
 
-def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+def flutterVersionCode = localProperties.getProperty("flutter.versionCode")
 if (flutterVersionCode == null) {
-    flutterVersionCode = '1'
+    flutterVersionCode = "1"
 }
 
-def flutterVersionName = localProperties.getProperty('flutter.versionName')
+def flutterVersionName = localProperties.getProperty("flutter.versionName")
 if (flutterVersionName == null) {
-    flutterVersionName = '1.0'
+    flutterVersionName = "1.0"
 }
 
 android {
     namespace "com.example.portfolio_app"
-    compileSdk 34 // Latest Android SDK
-    
+    compileSdk 34 // latest Android SDK
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17 // Updated to Java 17
-        targetCompatibility JavaVersion.VERSION_17
+        // ✅ Use Java 21 (fully compatible with Gradle 8.7 / Codemagic JDK 21)
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        jvmTarget = '17' // Updated to Java 17
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        jvmTarget = "21"
     }
 
     defaultConfig {
         applicationId "com.example.portfolio_app"
         minSdkVersion 21
-        targetSdkVersion 34 // Latest target SDK
+        targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
 
     buildTypes {
         release {
+            // ✅ Use your own release key later if publishing
             signingConfig signingConfigs.debug
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
 
     buildFeatures {
         buildConfig true
     }
+
+    // ✅ Makes sure all JavaCompile tasks use Java 21
+    tasks.withType(JavaCompile).configureEach {
+        it.sourceCompatibility = JavaVersion.VERSION_21
+        it.targetCompatibility = JavaVersion.VERSION_21
+    }
 }
 
 flutter {
-    source '../..'
+    source "../.."
 }
 
 dependencies {
