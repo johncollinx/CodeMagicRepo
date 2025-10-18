@@ -1,6 +1,6 @@
 plugins {
     id "com.android.application"
-    id "org.jetbrains.kotlin.android"        // ✅ Updated official plugin id
+    id "org.jetbrains.kotlin.android"
     id "dev.flutter.flutter-gradle-plugin"
 }
 
@@ -17,7 +17,7 @@ def flutterVersionName = localProperties.getProperty("flutter.versionName") ?: "
 
 android {
     namespace "com.example.portfolio_app"
-    compileSdk 34 // ✅ Matches latest stable SDK
+    compileSdk 36 //  FIX: Updated from 34 to 36 for url_launcher_android plugin
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_21
@@ -31,7 +31,7 @@ android {
     defaultConfig {
         applicationId "com.example.portfolio_app"
         minSdk 21
-        targetSdk 34
+        targetSdk 36 // 🐛 FIX: Updated from 34 to 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -62,5 +62,6 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+    // 🐛 FIX: Updated from 1.9.22 to 2.0.0 to resolve Kotlin deprecation warning
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0" 
 }
