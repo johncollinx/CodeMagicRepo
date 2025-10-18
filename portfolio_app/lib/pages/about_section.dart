@@ -4,12 +4,24 @@ import 'package:url_launcher/url_launcher.dart';
 class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
 
-  // Function to open/download CV (Google Drive, Firebase, or local asset)
+  // Function to open/download CV
   void _downloadCV() async {
-    const cvUrl = 'https://example.com/COLLINS_EHIMHEN_AMIOHU_CV.pdf'; // Replace with your real CV URL
+    const cvUrl = 'https://example.com/COLLINS_EHIMHEN_AMIOHU_CV.pdf'; // Replace with real CV URL
     final Uri url = Uri.parse(cvUrl);
     if (await canLaunchUrl(url)) {
       await launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch CV link';
+    }
+  }
+
+  // Helper function for external URLs
+  Future<void> _launchUrl(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch $urlString';
     }
   }
 
@@ -75,7 +87,7 @@ I’m an organized and analytical thinker who thrives on problem-solving, collab
             ),
             const SizedBox(height: 24),
 
-            // Download Button
+            // Download CV Button
             Center(
               child: ElevatedButton.icon(
                 onPressed: _downloadCV,
@@ -86,6 +98,36 @@ I’m an organized and analytical thinker who thrives on problem-solving, collab
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   textStyle: const TextStyle(fontSize: 16),
                 ),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            // Social & Contact Buttons
+            Center(
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 12,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () =>
+                        _launchUrl('https://github.com/ClimelEnterprise'),
+                    icon: const Icon(Icons.code),
+                    label: const Text('GitHub'),
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () =>
+                        _launchUrl('https://www.linkedin.com/in/collinsamiohu'),
+                    icon: const Icon(Icons.business_center),
+                    label: const Text('LinkedIn'),
+                  ),
+                  ElevatedButton.icon(
+                    onPressed: () => _launchUrl(
+                        'mailto:collinsamiohu@gmail.com?subject=Portfolio%20Contact'),
+                    icon: const Icon(Icons.email),
+                    label: const Text('Email'),
+                  ),
+                ],
               ),
             ),
           ],
