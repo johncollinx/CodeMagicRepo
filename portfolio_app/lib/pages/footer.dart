@@ -11,13 +11,20 @@ class Footer extends StatelessWidget {
         children: const [
           Divider(),
           Text(
-            '© 2025 John Climel. All rights reserved.',
+            '© 2025 ClimelInc. All rights reserved.',
             style: TextStyle(fontSize: 14, color: Colors.grey),
           ),
           SizedBox(height: 10),
           Text(
             'Made with Flutter 💙',
             style: TextStyle(fontSize: 12, color: Colors.grey),
+          ),
+          SizedBox(height: 10),
+          Text(
+            'Disclaimer: This portfolio is for personal and illustrative purposes only. '
+            'Information presented does not represent any official affiliation or endorsement.',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 11, color: Colors.grey),
           ),
         ],
       ),
