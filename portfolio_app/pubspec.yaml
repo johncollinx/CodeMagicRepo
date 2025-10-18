@@ -58,12 +58,13 @@ flutter_launcher_icons:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+# The following section is specific to Flutter packages.
 flutter:
   uses-material-design: true
 
   assets:
-    - assets/app_icon.png
     - assets/coverfoto.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
