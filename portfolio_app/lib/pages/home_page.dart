@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: const [
-            Headshot(imagePath: 'pages/headshot.png'), // <-- use local asset path here
+            Headshot(imagePath: 'assets/coverfoto.png'), // <-- use local asset path here
             SizedBox(height: 16),
             AboutSection(),
             SizedBox(height: 24),
