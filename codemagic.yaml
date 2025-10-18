@@ -6,7 +6,7 @@ workflows:
       flutter: stable
     scripts:
       - flutter pub get
-      - flutter build apk --android-skip-build-dependency-validation
+      - flutter build apk 
 
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
